@@ -18,7 +18,7 @@ style.use('ggplot')
 x = datetime.datetime.now()
 print(x)
 
-df_reversed= pd.read_csv(r'C:\Users\Elif\Desktop\DataSets\BANKACILIK\YKBNK.csv')
+df_reversed= pd.read_csv('BANKACILIK1\YKBNK.csv')
 df =df_reversed[::-1]
 print(df.isnull().sum().sum())
 
@@ -78,7 +78,7 @@ df=df[['Şimdi','Hac.','HL_PCT','PCT_change']]
 
 
 
-forecast_out = int(math.ceil(0.005 * len(df)))
+forecast_out = int(math.ceil(0.01 * len(df)))
 df['Tahmin']=df['Şimdi'].shift(-forecast_out)
 
 

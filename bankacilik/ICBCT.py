@@ -18,7 +18,7 @@ style.use('ggplot')
 x = datetime.datetime.now()
 print(x)
 
-df_reversed= pd.read_csv(r'C:\Users\Elif\Desktop\DataSets\BANKACILIK\ICBCT.csv.csv')
+df_reversed= pd.read_csv('ICBCT1.csv')
 df =df_reversed[::-1]
 print(df.isnull().sum().sum())
 

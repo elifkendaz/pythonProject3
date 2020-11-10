@@ -18,7 +18,7 @@ style.use('ggplot')
 x = datetime.datetime.now()
 print(x)
 
-df_reversed= pd.read_csv(r'C:\Users\Elif\Desktop\DataSets\BANKACILIK\TSKB.csv.csv')
+df_reversed= pd.read_csv('DataSets\BANKACILIK\TSKB.csv')
 df =df_reversed[::-1]
 print(df.isnull().sum().sum())
 
@@ -64,11 +64,18 @@ for i in df['Hac.']:
         i=float(i)
         i=i*1000.0
         df['Hac.'].loc[df['Hac.'].values == i_temp] = i
+
     elif str(i).endswith('M'):
         i = str(i)[:-1]
         i = str(i).replace(',', '.')
         i = float(i)
         i = i * 1000000.0
+        df['Hac.'].loc[df['Hac.'].values == i_temp] = i
+    elif str(i).endswith('B'):
+        i = str(i)[:-1]
+        i = str(i).replace(',', '.')
+        i = float(i)
+        i = i * 1000.0
         df['Hac.'].loc[df['Hac.'].values == i_temp] = i
 
 
