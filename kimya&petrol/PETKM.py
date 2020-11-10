@@ -70,7 +70,12 @@ for i in df['Hac.']:
         i = float(i)
         i = i * 1000000.0
         df['Hac.'].loc[df['Hac.'].values == i_temp] = i
-
+    elif str(i).endswith('B'):
+        i = str(i)[:-1]
+        i = str(i).replace(',', '.')
+        i = float(i)
+        i = i * 1000.0
+        df['Hac.'].loc[df['Hac.'].values == i_temp] = i
 
 df['HL_PCT']= (df['Yüksek'] -df['Düşük']) / df['Şimdi']*100.0
 df['PCT_change'] = (df['Şimdi']-df['Açılış']) / df['Açılış']*100.0

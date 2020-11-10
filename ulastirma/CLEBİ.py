@@ -18,7 +18,7 @@ style.use('ggplot')
 x = datetime.datetime.now()
 print(x)
 
-df_reversed= pd.read_csv('GIDA1\AEFES.csv')
+df_reversed= pd.read_csv('ULASTIRMA1\CLEBI.csv')
 df =df_reversed[::-1]
 print(df.isnull().sum().sum())
 
@@ -136,7 +136,7 @@ df['Tahmin'].plot(color='b')
 plt.legend(loc=4)
 plt.xlabel('Tarih')
 plt.ylabel('Tahmin')
-plt.title('Anadolu Efes')
+plt.title('ÇELEBİ')
 plt.show()
 df['Tahmin'].dropna()
 
@@ -144,8 +144,5 @@ df.dropna(subset=['Tahmin'],inplace=True)
 print(df['Tahmin'])
 
 df1= pd.DataFrame(df, columns= ['Tahmin'])
-df1.to_csv('aefes.csv')
-
-
-
+df1.to_csv('clebi.csv')
 
