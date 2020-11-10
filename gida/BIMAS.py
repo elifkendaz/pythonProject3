@@ -18,7 +18,7 @@ style.use('ggplot')
 x = datetime.datetime.now()
 print(x)
 
-df_reversed= pd.read_csv('GIDA1\BİMAS.csv')
+df_reversed= pd.read_csv('GIDA1\BIMAS.csv')
 df =df_reversed[::-1]
 print(df.isnull().sum().sum())
 
