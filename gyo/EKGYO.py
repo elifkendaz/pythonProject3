@@ -37,7 +37,11 @@ for i in df['Şimdi']:
     i=str(i).replace(',','.')
     i=float(i)
     df['Şimdi'].loc[df['Şimdi'].values == i_temp] = i
-
+for i in df:
+    i_temp=i
+    i=str(i).replace('-','')
+    i=float(i)
+    df.loc[df.values == i_temp] = i
 for i in df['Açılış']:
     i_temp=i
     i=str(i).replace(',','.')

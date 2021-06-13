@@ -71,7 +71,7 @@ for i in df['Hac.']:
         i = i * 1000000.0
         df['Hac.'].loc[df['Hac.'].values == i_temp] = i
 
-
+df.count()
 df['HL_PCT']= (df['Yüksek'] -df['Düşük']) / df['Şimdi']*100.0
 df['PCT_change'] = (df['Şimdi']-df['Açılış']) / df['Açılış']*100.0
 df=df[['Şimdi','Hac.','HL_PCT','PCT_change']]
@@ -130,15 +130,22 @@ for i in predset:
     nextDatetime+= timedelta(days=1)
     df.loc[next_date]=[np.nan for x in range(len(df.columns)-1)]+[i]
 
+df['Now']=df['Şimdi']
+df['Vol.']=df['Hac.']
+df['Predict']=df['Tahmin']
+dfx=df[['Now','Vol.','HL_PCT','PCT_change','Predict']]
 
-df['Şimdi'].plot(color='r')
-df['Tahmin'].plot(color='b')
+
+df['Now'].plot(color='r')
+df['Predict'].plot(color='b')
 plt.legend(loc=4)
-plt.xlabel('Tarih')
-plt.ylabel('Tahmin')
+plt.xlabel('Date')
+plt.ylabel('Predict')
 plt.title('Akbank')
 plt.show()
+
 df['Tahmin'].dropna()
+
 
 df.dropna(subset=['Tahmin'],inplace=True)
 print(df['Tahmin'])
